@@ -1,5 +1,21 @@
 # ContactsList
 
+To execute Node server:
+
+1. Open node terminal.
+2. Go to project root folder.
+3. Execute the command: 'node expressServer.js', this will make the server to run in the local 8080 port.
+
+To open the app:
+
+1. Go to URL: 'localhost:8080' in the browser.
+
+
+The node_modules folder has the dependecies that make the Node server run: express and request;
+this has to be downloaded, or, you will have to execute commands: 'npm install' and 'npm install request' in the root folder of the project.
+
+------------------------------------------------------------------------------------------------------
+
 Para ejecutar el servidor Node:
 
 1. Abrir la consola de node.
