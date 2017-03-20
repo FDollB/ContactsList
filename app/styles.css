@@ -6,8 +6,18 @@ body label{
 	font-size: 18px;
 }
 
-.scroll-bar{
-  	overflow: scroll;	
+.name-company p {
+	font-size: 24px;
+}
+
+.alert-default{
+    color: #727372;
+    background-color: #f2f3f2;
+    border-color: #e8e8e8;
+}
+
+.alert-container {
+	padding: 15px;
 }
 
 .contact-item {
@@ -16,18 +26,19 @@ body label{
     margin-top: 4px;
     background-color: #fff;
     border: 1px solid #ddd;
+    cursor: pointer;
 }
 
 #contacts{
 	padding: 0px;
+	overflow-y: scroll;	
+  	position: absolute;
+  	top: 0;
+  	bottom: 0;
 }
 
 .contacts label{
 	display: block;
-}
-
-.name-company p {
-	font-size: 24px;
 }
 
 .details .row {
@@ -51,23 +62,14 @@ body label{
 	font-weight: 700;
 }
 
-/*@media (max-width: 992px)
-.hidden-md{
-	display: none;
-}*/
-
-.fakeScroll{ position:absolute; top:0; right:0; bottom:0; left:0; margin:auto; min-height:70%; height:1px; width:500px; }
-.scrollContent{ padding-top:1em; padding-bottom:1em; }
-.scrollWrap{ background:#FFF; border-radius:4px; -moz-box-sizing:border-box; box-sizing:border-box; }
-/* upper and bottom fades */
-.scrollWrap::before{ content:''; position:absolute; z-index:1; top:0; left:0; right:0; height:5%;
-    background: -webkit-linear-gradient(#FFF 0%, rgba(255,255,255,0) 100%);
-    background: -o-linear-gradient(#FFF 0%, rgba(255,255,255,0) 100%);
-    background: linear-gradient(#FFF 0%, rgba(255,255,255,0) 100%);
+@media screen and (min-width: 992px) {
+    .hidden-md {
+        display: none;
+    }
 }
 
-.scrollWrap::after{ content:''; position:absolute; z-index:1; bottom:0; left:0; right:0; height:5%;
-    background: -webkit-linear-gradient(rgba(255,255,255,0) 0%, #FFF 100%);
-    background: -o-linear-gradient(rgba(255,255,255,0) 0%, #FFF 100%);
-    background: linear-gradient(rgba(255,255,255,0) 0%, #FFF 100%);
+@media screen and (min-width: 767px) {
+    .hidden-sm {
+        display: none;
+    }
 }

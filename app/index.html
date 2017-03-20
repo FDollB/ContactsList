@@ -16,21 +16,25 @@
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	</head>
+
 	<body ng-controller="MainController">
 		<div id="contacts" class="contacts col-md-4 col-sm-5 col-xs-12">
 			<div class="contact-item col-md-12 col-sm-12 col-xs-12" ng-repeat="contact in contacts" ng-click="SelectContact(contact)">
-				<img class="backup-picture col-md-3 col-sm-3 col-xs-3" src="{{contact.smallImageURL}}">
+				<img class="backup-picture col-md-3 col-sm-3 col-xs-3" ng-src="{{contact.smallImageURL}}">
 				<div class="col-md-9 col-sm-9 col-xs-9">
 					<p class="title">{{contact.name}}</p>
 					<p>{{contact.phone.home}}</p>
 				</div>
 			</div>
 		</div>
-		<div ng-show="selectedContact" class="details col-md-8 col-sm-7 hidden-xs">
+		<div id="details" ng-show="selectedContact" class="details col-md-8 col-sm-7 hidden-xs pull-right">
 			<div class="details-head col-md-12 col-sm-12 col-xs-12 row">
-				<img class="backup-picture col-md-4 col-sm-3 col-xs-3" src="{{selectedContact.largeImageURL}}">
+				<div class="col-xs-12 hidden-sm">
+					<a ng-click="BackToContacts()"> Back</a>
+				</div>
+				<img class="backup-picture col-md-4 col-sm-3 col-xs-3" ng-src="{{selectedContact.largeImageURL}}">
 				<div class="col-md-8 col-sm-9 col-xs-9 name-company">
-					<p class=" title hidden-md">Name:</p>
+					<p class="title hidden-md">Name:</p>
 					<p class="desc">{{selectedContact.name}}</p>
 					<p class="title">Company:</p>
 					<p class="desc">{{selectedContact.company}}</p>
@@ -65,6 +69,11 @@
 					<p class="title">Email:</p>
 					<p class="desc">{{selectedContact.email}}</p>
 				</div>
+			</div>
+		</div>
+		<div ng-hide="selectedContact" class="col-md-8 col-sm-7 hidden-xs pull-right alert-container">
+			<div class="alert alert-default">
+				<p>Seleccione un contacto para ver los detalles.</p>
 			</div>
 		</div>
 	</body>
