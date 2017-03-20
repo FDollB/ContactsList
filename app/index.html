@@ -19,19 +19,25 @@
 
 	<body ng-controller="MainController">
 		<div id="contacts" class="contacts col-md-4 col-sm-5 col-xs-12">
-			<div class="contact-item col-md-12 col-sm-12 col-xs-12" ng-repeat="contact in contacts" ng-click="SelectContact(contact)">
+			<div class="contact-item col-md-12 col-sm-12 col-xs-12" ng-repeat="contact in contacts" ng-click="SelectContact(contact)" ng-class="{active: contact.name == selectedContact.name}">
 				<img class="backup-picture col-md-3 col-sm-3 col-xs-3" ng-src="{{contact.smallImageURL}}">
 				<div class="col-md-9 col-sm-9 col-xs-9">
-					<p class="title">{{contact.name}}</p>
+					<p class="contact-name">{{contact.name}}</p>
 					<p>{{contact.phone.home}}</p>
 				</div>
 			</div>
 		</div>
 		<div id="details" ng-show="selectedContact" class="details col-md-8 col-sm-7 hidden-xs pull-right">
 			<div class="details-head col-md-12 col-sm-12 col-xs-12 row">
-				<div class="col-xs-12 hidden-sm">
-					<a ng-click="BackToContacts()"> Back</a>
+				<div class="row hidden-md">
+					<strong class="pointer hidden-sm" ng-click="BackToContacts()"><span class="glyphicon glyphicon-menu-left"></span> All Contacts</strong>
+					<div class="pull-right hidden-md">
+						<span ng-show="selectedContact.favorite == true" class="glyphicon glyphicon-star pointer"></span>
+						<span ng-show="selectedContact.favorite == false" class="glyphicon glyphicon-star-empty pointer"></span>
+						<span class="glyphicon glyphicon-pencil pointer"></span>
+					</div>
 				</div>
+				<br>
 				<img class="backup-picture col-md-4 col-sm-3 col-xs-3" ng-src="{{selectedContact.largeImageURL}}">
 				<div class="col-md-8 col-sm-9 col-xs-9 name-company">
 					<p class="title hidden-md">Name:</p>
@@ -58,7 +64,7 @@
 				</div>
 				<div class="row">
 					<p class="title">Address:</p>
-					<p class="desc title">{{selectedContact.address.street}}</p>
+					<p class="desc no-margin">{{selectedContact.address.street}}</p>
 					<p class="desc">{{selectedContact.address.city}}, {{selectedContact.address.state}} {{selectedContact.address.zip}}</p>
 				</div>
 				<div class="row">
